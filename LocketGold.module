@@ -1,0 +1,12 @@
+#!name=LocketGold
+#!auth=Vu Chu
+#!desc=Sửa response RevenueCat để mở khóa Locket Gold.
+
+[Script]
+locketGold = type=http-response,engine=jsc,script-path=https://www.dropbox.com/scl/fi/68h6fqdhxgus53t91o4uj/locketGold.js?rlkey=6i6a9t7aw7dwh3ypvio4kcdsa&st=247pvunv&dl=1,pattern=^https:\/\/api\.revenuecat\.com\/.*\/(receipts$|subscribers\/[^/]+$),max-size=131072,requires-body=true,timeout=10,script-update-interval=0,enable=true
+
+deleteHeaders = type=http-request,engine=jsc,script-path=https://www.dropbox.com/scl/fi/nr9nowypmb7womty3cxpw/deleteHeaders.js?rlkey=ikd351kg56ykjecyamt6uel8i&st=y1qkdg1t&dl=1,pattern=^https:\/\/api\.revenuecat\.com\/.*\/(receipts|subscribers),script-update-interval=0,enable=true
+
+[MITM]
+hostname = *.revenuecat.com
+enable = true
